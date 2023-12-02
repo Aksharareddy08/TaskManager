@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="container">
+    <main class="row">
+        <div class="col-sm-12">
+          <br>
+          <center>
+            <h3>Task Category Details</h3>
+          </center>
+            <br>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task</th>
+                    <th>Category</th>
+                    <th>Created</th>
+                    <th>#</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for t in tasks %}
+                <tr>
+                    <td>{{t.pk}}</td>
+                    <td>{{t.member_task}}</td>
+                    <td>{{t.category}}</td>
+                    <td>{{t.created}}</td>
+                    <td>
+                        <a href="/delete/task/category/{{t.pk}}/">
+                            Delete
+                        </a>
+                        <a href="/edit/task/category/{{t.pk}}/">
+                            Update
+                        </a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+            <center>
+                <br>
+                    <a href="/member/dashboard/">
+                        Dashboard
+                    </a>
+                </br>
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock %}
